@@ -1,9 +1,6 @@
 /**
  * 给定两个字符串s和p，找到s中所有p的异位词的子串，返回这些子串的起始索引。不考虑答案输出的顺序。
  * 异位词指由相同字母重排列形成的字符串（包括相同的字符串）。
- * @param {string} s
- * @param {string} p
- * @returns {number[]}
  */
 function findAnagrams_method1(s: string, p: string): number[] {
   // 1. 将字符串 p 转换为字符数组，并对字符数组进行排序。默认是按照字母表的顺序进行排序的。
