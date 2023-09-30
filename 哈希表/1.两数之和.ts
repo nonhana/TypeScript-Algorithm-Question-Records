@@ -9,8 +9,11 @@
  */
 
 function twoSum(nums: number[], target: number): number[] {
+  // 1. 生成一个map，key为nums的值，value为nums的下标
   let helperMap: Map<number, number> = new Map();
+  // 2. 定义一个变量，用来存储map中是否存在target - nums[i]的值
   let index: number | undefined;
+  // 3. 定义结果数组
   let resArr: number[] = [];
 
   for (let i = 0, length = nums.length; i < length; i++) {
