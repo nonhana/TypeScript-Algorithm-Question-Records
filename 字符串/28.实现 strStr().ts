@@ -7,10 +7,13 @@
  * 示例 1: 输入: haystack = "hello", needle = "ll" 输出: 2
  * 示例 2: 输入: haystack = "aaaaa", needle = "bba" 输出: -1
  *
- * 说明: 当 needle 是空字符串时，我们应当返回什么值呢？这是一个在面试中很好的问题。 对于本题而言，当 needle 是空字符串时我们应当返回 0 。这与C语言的 strstr() 以及 Java的 indexOf() 定义相符。
+ * 说明: 当 needle 是空字符串时，我们应当返回什么值呢？这是一个在面试中很好的问题。
+ * 对于本题而言，当 needle 是空字符串时我们应当返回 0 。
+ * 这与C语言的 strstr() 以及 Java的 indexOf() 定义相符。
  */
 
 function strStr(haystack: string, needle: string): number {
+  // 1. 辅助函数：获取next数组，next数组的含义是：当前字符之前的字符串中，有多大长度的相同前缀后缀
   function getNext(str: string): number[] {
     let next: number[] = [];
     let j: number = -1;
