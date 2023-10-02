@@ -12,13 +12,16 @@
  * 这与C语言的 strstr() 以及 Java的 indexOf() 定义相符。
  */
 
+// KMP算法匹配字符串
 function strStr(haystack: string, needle: string): number {
   // 1. 辅助函数：获取next数组，next数组的含义是：当前字符之前的字符串中，有多大长度的相同前缀后缀
   function getNext(str: string): number[] {
     let next: number[] = [];
     let j: number = -1;
     next[0] = j;
-    for (let i = 1, length = str.length; i < length; i++) {
+    let length = str.length;
+    // 遍历字符串
+    for (let i = 1; i < length; i++) {
       while (j >= 0 && str[i] !== str[j + 1]) {
         j = next[j];
       }
@@ -29,10 +32,14 @@ function strStr(haystack: string, needle: string): number {
     }
     return next;
   }
+
   if (needle.length === 0) return 0;
+
   let next: number[] = getNext(needle);
   let j: number = -1;
-  for (let i = 0, length = haystack.length; i < length; i++) {
+
+  let length = haystack.length;
+  for (let i = 0; i < length; i++) {
     while (j >= 0 && haystack[i] !== needle[j + 1]) {
       j = next[j];
     }
