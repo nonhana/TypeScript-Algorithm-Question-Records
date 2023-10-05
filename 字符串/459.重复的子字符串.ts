@@ -18,6 +18,7 @@
  * 解释: 可由子字符串 "abc" 重复四次构成。 (或者子字符串 "abcabc" 重复两次构成。)
  */
 
+// KMP算法
 function repeatedSubstringPattern(s: string): boolean {
   function getNext(str: string): number[] {
     let next: number[] = [];
@@ -35,10 +36,10 @@ function repeatedSubstringPattern(s: string): boolean {
     return next;
   }
 
-  let next: number[] = getNext(s);
-  let sLength: number = s.length;
-  let nextLength: number = next.length;
-  let suffixLength: number = next[nextLength - 1] + 1;
+  let next: number[] = getNext(s); // next数组
+  let sLength: number = s.length; // 字符串长度
+  let nextLength: number = next.length; // next数组长度
+  let suffixLength: number = next[nextLength - 1] + 1; // 最长后缀长度
   if (suffixLength > 0 && sLength % (sLength - suffixLength) === 0) return true;
   return false;
 }

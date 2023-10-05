@@ -13,15 +13,16 @@
  */
 
 // KMP算法匹配字符串
+// 其实相当于就是把辅助函数写两遍
 function strStr(haystack: string, needle: string): number {
   // 1. 辅助函数：获取next数组，next数组的含义是：当前字符之前的字符串中，有多大长度的相同前缀后缀
   function getNext(str: string): number[] {
     let next: number[] = [];
     let j: number = -1;
+    // 初始化next数组[0] = -1
     next[0] = j;
-    let length = str.length;
     // 遍历字符串
-    for (let i = 1; i < length; i++) {
+    for (let i = 1; i < str.length; i++) {
       while (j >= 0 && str[i] !== str[j + 1]) {
         j = next[j];
       }
@@ -33,6 +34,7 @@ function strStr(haystack: string, needle: string): number {
     return next;
   }
 
+  // 判断模式字符串是否长度为0
   if (needle.length === 0) return 0;
 
   let next: number[] = getNext(needle);
@@ -40,7 +42,7 @@ function strStr(haystack: string, needle: string): number {
 
   let length = haystack.length;
   for (let i = 0; i < length; i++) {
-    while (j >= 0 && haystack[i] !== needle[j + 1]) {
+    while (j >= 0 && haystack[i] !== needle[j]) {
       j = next[j];
     }
     if (haystack[i] === needle[j + 1]) {
@@ -52,3 +54,5 @@ function strStr(haystack: string, needle: string): number {
   }
   return -1;
 }
+
+console.log(strStr("hello", "ll"));

@@ -13,14 +13,10 @@
  */
 
 function reverseString(s: string[]): void {
-  let length: number = s.length;
-  let left: number = 0,
-    right: number = length - 1;
-  let tempStr: string;
+  let left: number = 0;
+  let right: number = s.length - 1;
   while (left < right) {
-    tempStr = s[left];
-    s[left] = s[right];
-    s[right] = tempStr;
+    [s[left], s[right]] = [s[right], s[left]];
     left++;
     right--;
   }
