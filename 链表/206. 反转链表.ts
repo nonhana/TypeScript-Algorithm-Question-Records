@@ -7,14 +7,15 @@ import { ListNode } from "./链表定义";
 
 // 双指针法
 function reverseList(head: ListNode | null): ListNode | null {
-  let preNode: ListNode | null = null,
-    curNode: ListNode | null = head,
-    tempNode: ListNode | null;
+  let preNode: ListNode | null = null;
+  let curNode: ListNode | null = head;
+  let tempNode: ListNode | null; // 这边对tempNode只是进行了声明，并未赋初始值
+  // 循环条件是curNode不为null
   while (curNode) {
-    tempNode = curNode.next;
-    curNode.next = preNode;
-    preNode = curNode;
+    tempNode = curNode.next; // 用来记录原来的当前节点的下一个节点
+    curNode.next = preNode; // 这一步才是真正的反转，把当前节点指针指向前一个
+    preNode = curNode; // 前节点向后移一位
     curNode = tempNode;
   }
-  return preNode;
+  return preNode; // 最终返回的是前一个节点
 }

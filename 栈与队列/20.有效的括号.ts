@@ -29,6 +29,7 @@
 // 版本一：普通版
 function isValid1(s: string): boolean {
   let helperStack: string[] = [];
+
   for (let i = 0, length = s.length; i < length; i++) {
     let x: string = s[i];
     switch (x) {

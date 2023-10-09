@@ -11,11 +11,13 @@ function detectCycle(head: ListNode | null): ListNode | null {
   // 1. 定义快慢指针，初始化的时候全部指向头节点（不用定义虚拟头节点）
   let slowNode: ListNode | null = head;
   let fastNode: ListNode | null = head;
+
   // 2. 定义循环判断条件：快指针不为空，且快指针的下一个节点不为空
   while (fastNode !== null && fastNode.next !== null) {
     // 3. 每次循环快指针走两步，慢指针走一步
     slowNode = slowNode!.next;
     fastNode = fastNode.next.next;
+
     // 4. 如果快慢指针相遇，说明有环，此时将慢指针指向头节点，快指针不变，然后快慢指针同时走一步，再次相遇的节点就是环的入口节点
     if (slowNode === fastNode) {
       slowNode = head;

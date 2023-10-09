@@ -12,8 +12,8 @@ function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
   let fastNode: ListNode = newHead;
   // 3. 让快指针先走 n 步
   while (n) {
-    n--;
     fastNode = fastNode.next!; //由虚拟头节点前进n个节点时,fastNode.next可推断不为null。
+    n--;
   }
   // 4. 让快慢指针同时走，直到快指针走到尾部节点
   while (fastNode.next) {

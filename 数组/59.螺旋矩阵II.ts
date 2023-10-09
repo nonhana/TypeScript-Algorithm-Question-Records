@@ -7,7 +7,7 @@
  */
 
 function generateMatrix(n: number): number[][] {
-  let loopNum: number = Math.floor(n / 2);
+  let loopNum: number = Math.floor(n / 2); // 循环次数
   const resArr: number[][] = new Array(n).fill(1).map((i) => new Array(n));
   let chunkNum: number = n - 1;
   let startX: number = 0;

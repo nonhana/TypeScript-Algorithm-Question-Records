@@ -8,14 +8,18 @@
  * 示例2:给定nums=[0,1,2,2,3,0,4,2],val=2,函数应该返回新的长度5,并且nums中的前五个元素为0,1,3,0,4。
  *
  * 你不需要考虑数组中超出新长度后面的元素。
+ *
+ * 重点；只用返回长度
  */
 
 function removeElement(nums: number[], val: number): number {
-  let slowIndex: number = 0,
-    fastIndex: number = 0;
+  let slowIndex: number = 0;
+  let fastIndex: number = 0;
+
   while (fastIndex < nums.length) {
     if (nums[fastIndex] !== val) {
-      nums[slowIndex++] = nums[fastIndex];
+      nums[slowIndex] = nums[fastIndex];
+      slowIndex++;
     }
     fastIndex++;
   }
