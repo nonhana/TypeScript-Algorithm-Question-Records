@@ -13,6 +13,7 @@ function maxSlidingWindow(nums: number[], k: number): number[] {
     constructor() {
       this.queue = [];
     }
+
     /** 入队：value如果大于队尾元素，则将队尾元素删除，直至队尾元素大于value，或者队列为空 */
     public enqueue(value: number): void {
       let back: number | undefined = this.queue[this.queue.length - 1];
@@ -34,12 +35,15 @@ function maxSlidingWindow(nums: number[], k: number): number[] {
     }
   }
   const helperQueue: MonoQueue = new MonoQueue();
-  let i: number = 0,
-    j: number = 0;
+
+  let i: number = 0; // 滑动窗口的左边界
+  let j: number = 0; // 滑动窗口的右边界
   let resArr: number[] = [];
+
   while (j < k) {
     helperQueue.enqueue(nums[j++]);
   }
+
   resArr.push(helperQueue.top()!);
   while (j < nums.length) {
     helperQueue.enqueue(nums[j]);

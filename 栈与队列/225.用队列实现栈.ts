@@ -1,4 +1,5 @@
 /**
+ * 栈的基本实现
  * push(x) -- 元素 x 入栈
  * pop() -- 移除栈顶元素
  * top() -- 获取栈顶元素
@@ -58,7 +59,7 @@ class MyStack2 {
 
   pop(): number {
     for (let i = 0, length = this.queue.length - 1; i < length; i++) {
-      this.queue.push(this.queue.shift()!);
+      this.queue.push(this.queue.shift()!); // 把第一个元素放到队尾
     }
     return this.queue.shift()!;
   }
