@@ -11,17 +11,18 @@
  */
 
 function threeSum(nums: number[]): number[][] {
-  // 1. 对原数组进行排序
+  // 1. 对原数组进行排序(从小到大)
   nums.sort((a, b) => a - b);
 
   // 2. 定义变量：数组长度，左指针，右指针，结果数组
   let length = nums.length;
-  let left: number = 0;
-  let right: number = length - 1;
-  let resArr: number[][] = [];
+  let left: number = 0; // 最左端
+  let right: number = length - 1; // 最右端
+  let resArr: number[][] = []; // 存放结果的数组
 
   // 3. 遍历数组
   for (let i = 0; i < length; i++) {
+    // 特殊情况：
     // 3.1 nums经过排序后，只要nums[i]>0, 此后的nums[i] + nums[left] + nums[right]均大于0,可以提前终止循环。
     if (nums[i] > 0) {
       return resArr;
@@ -30,6 +31,7 @@ function threeSum(nums: number[]): number[][] {
     if (i > 0 && nums[i] === nums[i - 1]) {
       continue;
     }
+
     // 3.3 更改左指针和右指针的值，缩小范围
     left = i + 1;
     right = length - 1;

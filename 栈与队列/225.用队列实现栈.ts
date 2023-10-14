@@ -58,7 +58,7 @@ class MyStack2 {
   }
 
   pop(): number {
-    for (let i = 0, length = this.queue.length - 1; i < length; i++) {
+    for (let i = 0; i < this.queue.length - 1; i++) {
       this.queue.push(this.queue.shift()!); // 把第一个元素放到队尾
     }
     return this.queue.shift()!;
