@@ -1,11 +1,11 @@
-import { ListNode } from "./链表定义";
-
 /**
  * 给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。
  * 你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
  *
  * 需要三个节点进行计算
  */
+import { ListNode } from "./链表定义";
+
 function swapPairs(head: ListNode | null): ListNode | null {
   const dummyNode: ListNode = new ListNode(0, head); // 定义虚拟头节点，指向head
   let curNode: ListNode | null = dummyNode; // 初始化当前节点为虚拟头节点

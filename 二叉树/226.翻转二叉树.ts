@@ -3,25 +3,22 @@
  */
 import { TreeNode } from "./TreeNode";
 
-// 递归法（前序遍历）
+// 递归法（前序遍历）：中左右
 function invertTree1(root: TreeNode | null): TreeNode | null {
   if (root === null) return root;
-  let tempNode: TreeNode | null = root.left;
-  root.left = root.right;
-  root.right = tempNode;
-  invertTree1(root.left);
-  invertTree1(root.right);
+  // 遍历到中节点的时候进行交换
+  [root.left, root.right] = [root.right, root.left]; // 中
+  invertTree1(root.left); // 左
+  invertTree1(root.right); // 右
   return root;
 }
 
-// 递归法（后序遍历）
+// 递归法（后序遍历）：左右中
 function invertTree2(root: TreeNode | null): TreeNode | null {
   if (root === null) return root;
   invertTree2(root.left);
   invertTree2(root.right);
-  let tempNode: TreeNode | null = root.left;
-  root.left = root.right;
-  root.right = tempNode;
+  [root.left, root.right] = [root.right, root.left]; // 中
   return root;
 }
 

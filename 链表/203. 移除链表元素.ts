@@ -12,6 +12,7 @@ function removeElements(head: ListNode | null, val: number): ListNode | null {
     head = head.next;
   }
 
+  // 2. 如果链表为空，直接返回
   if (head === null) return head;
 
   let pre: ListNode = head; // pre指向当前节点的前一个节点

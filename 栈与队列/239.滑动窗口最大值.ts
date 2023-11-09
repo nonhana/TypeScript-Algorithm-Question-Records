@@ -23,6 +23,7 @@ function maxSlidingWindow(nums: number[], k: number): number[] {
       }
       this.queue.push(value);
     }
+
     /** 出队：只有当队头元素等于value，才出队 */
     public dequeue(value: number): void {
       let top: number | undefined = this.top();
@@ -34,6 +35,7 @@ function maxSlidingWindow(nums: number[], k: number): number[] {
       return this.queue[0];
     }
   }
+
   const helperQueue: MonoQueue = new MonoQueue();
 
   let i: number = 0; // 滑动窗口的左边界

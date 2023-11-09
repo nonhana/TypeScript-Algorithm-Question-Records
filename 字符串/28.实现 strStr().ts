@@ -40,11 +40,11 @@ function strStr(haystack: string, needle: string): number {
   let next: number[] = getNext(needle);
   let j: number = -1;
 
-  let length = haystack.length;
-  for (let i = 0; i < length; i++) {
+  for (let i = 0; i < haystack.length; i++) {
     while (j >= 0 && haystack[i] !== needle[j]) {
       j = next[j];
     }
+
     if (haystack[i] === needle[j + 1]) {
       if (j === needle.length - 2) {
         return i - j - 1;

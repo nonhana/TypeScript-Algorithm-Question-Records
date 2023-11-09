@@ -48,6 +48,7 @@ function groupAnagrams1(strs: string[]): string[][] {
 
 function groupAnagrams(strs: string[]) {
   let map: Map<string, Array<string>> = new Map();
+
   for (let i = 0; i < strs.length; i++) {
     // 把每个单词按照字母排序,这样子就可以把异位词变成一样的了
     let key = strs[i].split("").sort().join("");

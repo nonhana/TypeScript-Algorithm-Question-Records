@@ -21,7 +21,7 @@ function intersect(nums1: number[], nums2: number[]): number[] {
 
   // 构建交集数组
   for (const [num, count1] of countMap1) {
-    const count2 = countMap2.get(num);
+    const count2 = countMap2.get(num); // get返回的是key对应的value
     if (count2 !== undefined) {
       const intersectionCount = Math.min(count1, count2);
       for (let i = 0; i < intersectionCount; i++) {

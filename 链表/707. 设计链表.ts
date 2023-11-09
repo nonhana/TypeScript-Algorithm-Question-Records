@@ -4,6 +4,7 @@ class MyLinkedList {
   private size: number; // 记录链表长度
   private head: ListNode | null; // 头节点
   private tail: ListNode | null; // 尾节点
+
   // 此处的构造函数并没有传递默认值，只是将所有的值初始化
   constructor() {
     this.size = 0;
@@ -11,7 +12,7 @@ class MyLinkedList {
     this.tail = null;
   }
 
-  // 获取链表中第 index个节点的值
+  // 获取链表中第index个节点的值
   get(index: number): number {
     // 索引无效的情况
     if (index < 0 || index >= this.size) {

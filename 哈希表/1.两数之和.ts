@@ -16,7 +16,7 @@ function twoSum(nums: number[], target: number): number[] {
   // 3. 定义结果数组
   let resArr: number[] = [];
 
-  for (let i = 0, length = nums.length; i < length; i++) {
+  for (let i = 0; i < nums.length; i++) {
     index = helperMap.get(target - nums[i]);
     if (index !== undefined) {
       resArr = [i, index];
