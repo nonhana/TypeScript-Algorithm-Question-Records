@@ -5,6 +5,7 @@ import { TreeNode } from "./TreeNode";
 
 function findBottomLeftValue(root: TreeNode | null): number {
   function recur(root: TreeNode, depth: number): void {
+    // 该节点为叶子节点
     if (root.left === null && root.right === null) {
       if (depth > maxDepth) {
         maxDepth = depth;
@@ -16,7 +17,7 @@ function findBottomLeftValue(root: TreeNode | null): number {
     if (root.right !== null) recur(root.right, depth + 1);
   }
   let maxDepth: number = 0;
-  let resVal: number = 0;
+  let resVal: number = 0; // 全局变量，用于记录最左边的值
   if (root === null) return resVal;
   recur(root, 1);
   return resVal;

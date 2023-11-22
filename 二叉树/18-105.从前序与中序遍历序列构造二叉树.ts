@@ -4,8 +4,8 @@ import { TreeNode } from "./TreeNode";
 function buildTree1(preorder: number[], inorder: number[]): TreeNode | null {
   if (preorder.length === 0) return null;
   const rootVal: number = preorder[0];
-  const rootNode: TreeNode = new TreeNode(rootVal);
   const rootValIndex: number = inorder.indexOf(rootVal);
+  const rootNode: TreeNode = new TreeNode(rootVal);
   rootNode.left = buildTree1(
     preorder.slice(1, rootValIndex + 1),
     inorder.slice(0, rootValIndex)

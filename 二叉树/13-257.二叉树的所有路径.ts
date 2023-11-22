@@ -6,7 +6,8 @@ import { TreeNode } from "./TreeNode";
 
 function binaryTreePaths(root: TreeNode | null): string[] {
   function recur(node: TreeNode, route: string, resArr: string[]): void {
-    route += String(node.val);
+    route += String(node.val); // 拼接路径
+    // 如果是叶子节点，就把路径推入结果数组
     if (node.left === null && node.right === null) {
       resArr.push(route);
       return;

@@ -8,12 +8,12 @@ import { TreeNode } from "./TreeNode";
 // 递归法
 function isBalanced(root: TreeNode | null): boolean {
   function getDepth(root: TreeNode | null): number {
-    if (root === null) return 0;
-    let leftDepth: number = getDepth(root.left);
-    if (leftDepth === -1) return -1;
-    let rightDepth: number = getDepth(root.right);
-    if (rightDepth === -1) return -1;
-    if (Math.abs(leftDepth - rightDepth) > 1) return -1;
+    if (root === null) return 0; // 终止条件
+    let leftDepth: number = getDepth(root.left); // 获取左子树深度
+    if (leftDepth === -1) return -1; // 对应下面的判断
+    let rightDepth: number = getDepth(root.right); // 获取右子树深度
+    if (rightDepth === -1) return -1; // 对应下面的判断
+    if (Math.abs(leftDepth - rightDepth) > 1) return -1; // 如果左右子树深度差大于1，直接返回-1
     return 1 + Math.max(leftDepth, rightDepth);
   }
   return getDepth(root) !== -1;
