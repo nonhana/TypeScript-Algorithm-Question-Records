@@ -13,9 +13,12 @@ function lowestCommonAncestor(
   p: TreeNode | null,
   q: TreeNode | null
 ): TreeNode | null {
+  // 如果当前节点root为空，或者root等于p或q，则返回root。这表示我们已经找到了p、q中的一个，或者到达了树的底部。
   if (root === null || root === p || root === q) return root;
+
   const left = lowestCommonAncestor(root.left, p, q);
   const right = lowestCommonAncestor(root.right, p, q);
+
   if (left !== null && right !== null) return root;
   if (left !== null) return left;
   if (right !== null) return right;

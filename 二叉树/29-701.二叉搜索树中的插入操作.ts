@@ -10,10 +10,10 @@
 */
 import { TreeNode } from "./TreeNode";
 
-// 递归-有返回值
+// 递归-有返回值，能够进行回溯
 function insertIntoBST(root: TreeNode | null, val: number): TreeNode | null {
-  if (root === null) return new TreeNode(val);
-  if (root.val > val) {
+  if (root === null) return new TreeNode(val); // 搜索到null，表示已经找到了要插入的位置了
+  if (val < root.val) {
     root.left = insertIntoBST(root.left, val);
   } else {
     root.right = insertIntoBST(root.right, val);
