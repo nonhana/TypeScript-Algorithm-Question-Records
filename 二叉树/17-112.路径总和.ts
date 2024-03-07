@@ -37,6 +37,7 @@ function hasPathSum2(root: TreeNode | null, targetSum: number): boolean {
 
   targetSum -= root.val; // 默认减掉根节点，为了下面的左子树和右子树的分别判断作铺垫
 
+  // 找到叶子节点并且路径和减为0，返回true
   if (root.left === null && root.right === null && targetSum === 0) return true;
 
   // 左子树或者右子树无论哪个找到路径都是可以的
