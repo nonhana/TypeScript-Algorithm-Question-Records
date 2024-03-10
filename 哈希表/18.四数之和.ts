@@ -18,6 +18,7 @@
 function fourSum(nums: number[], target: number): number[][] {
   // 1. 对原数组进行排序
   nums.sort((a, b) => a - b);
+
   // 2. 定义变量：数组长度，第一个指针，第二个指针，第三个指针，第四个指针，结果数组
   let first: number = 0,
     second: number,
@@ -25,6 +26,7 @@ function fourSum(nums: number[], target: number): number[][] {
     fourth: number;
   let length: number = nums.length;
   let resArr: number[][] = [];
+
   // 3. 遍历数组
   for (; first < length; first++) {
     // 3.1 如果当前值与前一个值相同，则跳过
@@ -33,6 +35,7 @@ function fourSum(nums: number[], target: number): number[][] {
     }
     // 3.2 更改第二个指针的值，缩小范围，并基于第二个指针遍历数组
     for (second = first + 1; second < length; second++) {
+      // 也是跳过重复的值
       if (second - first > 1 && nums[second] === nums[second - 1]) {
         continue;
       }
