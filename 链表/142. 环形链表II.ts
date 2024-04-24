@@ -8,7 +8,7 @@ import { ListNode } from "./链表定义";
  * 分六步进行解决
  */
 function detectCycle(head: ListNode | null): ListNode | null {
-  // 1. 定义快慢指针，初始化的时候全部指向头节点（不用定义虚拟头节点）
+  // 1. 定义快慢指针，初始化的时候全部指向头节点（不用定义虚拟头节点，虚拟头节点只适合与边界相关的问题）
   let slowNode: ListNode | null = head;
   let fastNode: ListNode | null = head;
 
@@ -29,6 +29,6 @@ function detectCycle(head: ListNode | null): ListNode | null {
       return slowNode;
     }
   }
-  // 6. 如果快指针为空，或者快指针的下一个节点为空，说明没有环，直接返回 null
+  // 6. 走到这里说明快指针为空，或者快指针的下一个节点为空，说明没有环，直接返回 null
   return null;
 }

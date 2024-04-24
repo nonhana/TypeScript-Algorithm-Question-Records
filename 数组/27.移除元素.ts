@@ -9,7 +9,7 @@
  *
  * 你不需要考虑数组中超出新长度后面的元素。
  *
- * 重点；只用返回长度
+ * 重点：只用返回长度
  */
 
 function removeElement(nums: number[], val: number): number {

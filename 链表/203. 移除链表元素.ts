@@ -7,7 +7,7 @@ import { ListNode } from "./链表定义";
  * 示例 3： 输入：head = [7,7,7,7], val = 7 输出：[]
  */
 function removeElements(head: ListNode | null, val: number): ListNode | null {
-  // 1. 如果头节点的值为val，就删除头部节点
+  // 1. 头节点单独判断，如果头节点的值为val，就删除头部节点
   while (head !== null && head.val === val) {
     head = head.next;
   }
@@ -23,7 +23,6 @@ function removeElements(head: ListNode | null, val: number): ListNode | null {
     if (cur.val === val) {
       pre.next = cur.next;
     } else {
-      // 此处不加类型断言时：编译器会认为pre类型为ListNode, pre.next类型为ListNode | null
       pre = pre.next as ListNode;
     }
     cur = cur.next;

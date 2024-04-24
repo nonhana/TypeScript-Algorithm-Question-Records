@@ -65,7 +65,7 @@ class MyLinkedList {
     // 正常情况
     // 获取插入位置的前一个 node
     let curNode = this.getNode(index - 1);
-    let node: ListNode = new ListNode(val, curNode.next);
+    let node = new ListNode(val, curNode.next);
     curNode.next = node;
     this.size++;
   }

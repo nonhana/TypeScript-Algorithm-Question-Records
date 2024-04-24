@@ -6,7 +6,7 @@ import { ListNode } from "./链表定义";
  */
 
 function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
-  // 1. 定义虚拟头节点
+  // 1. 定义虚拟头节点，使其移动n步后，慢指针指向倒数第n个节点的前一个节点
   let newHead: ListNode | null = new ListNode(0, head);
 
   // 2. 定义快慢指针，初始化的时候全部指向虚拟头节点

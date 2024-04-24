@@ -12,7 +12,7 @@ function levelOrder(root: TreeNode | null): number[][] {
   if (root !== null) helperQueue.push(root);
 
   while (helperQueue.length > 0) {
-    // 在遍历每一层的时候，都将下一层的所有元素压进队列
+    // 在遍历每一层的时候：1. 把当前helperQueue中的元素全部压进tempArr中；2. 都将下一层的所有元素压进队列
     for (let i = 0, length = helperQueue.length; i < length; i++) {
       curNode = helperQueue.shift()!; // 取到队列的第一个元素，并将其移出队列
       tempArr.push(curNode.val); // 暂时保存起来这一层的值
